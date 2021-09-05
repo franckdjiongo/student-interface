@@ -1,7 +1,37 @@
 import "./App.css";
+import { useCallback, useEffect, useState } from "react";
+import { StudentInfo } from "./components/StudentInfo";
 
 function App() {
-  return <div className="App"></div>;
+  let [studentList, setStudentList] = useState([]);
+
+  const fetchData = useCallback(() => {
+    fetch("https://api.hatchways.io/assessment/students")
+      .then((response) => response.json())
+      .then((data) => setStudentList(Object.values(data)));
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return (
+    <div>
+      {
+        <ul>
+          {studentList.map((students) =>
+            students.map((element) => (
+              <StudentInfo
+                student={element}
+                key={element.id}
+                grades={element.grades}
+              />
+            ))
+          )}
+        </ul>
+      }
+    </div>
+  );
 }
 
 export default App;
