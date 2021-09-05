@@ -1,21 +1,50 @@
+:root {
+  --bg-color: #efefef;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 body {
   font-family: "Raleway", sans-serif;
 }
-.App {
-  background-color: #282c34;
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+section {
+  padding-top: 3rem;
 }
 
-li {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.center {
+  overflow: auto;
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 50em;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10 0 0 0;
+  background-color: white;
+  scroll-behavior: smooth;
+  height: 39em;
 }
 
-li > span:first-of-type {
-  display: flex;
-  font-weight: 700;
+/* Hide scrollbar Chrome, Opera */
+.center::-webkit-scrollbar {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  height: 39em;
 }

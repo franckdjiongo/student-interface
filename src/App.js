@@ -16,21 +16,23 @@ function App() {
   }, [fetchData]);
 
   return (
-    <div>
-      {
-        <ul>
-          {studentList.map((students) =>
-            students.map((element) => (
-              <StudentInfo
-                student={element}
-                key={element.id}
-                grades={element.grades}
-              />
-            ))
-          )}
-        </ul>
-      }
-    </div>
+    <section>
+      <div className="center">
+        {
+          <ul>
+            {studentList.map((students) =>
+              students.map((element) => (
+                <StudentInfo
+                  student={element}
+                  key={element.id}
+                  grades={element.grades}
+                />
+              ))
+            )}
+          </ul>
+        }
+      </div>
+    </section>
   );
 }
 
