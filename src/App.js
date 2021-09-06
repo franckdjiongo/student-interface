@@ -1,9 +1,11 @@
 import "./App.css";
 import { useCallback, useEffect, useState } from "react";
 import { StudentInfo } from "./components/StudentInfo";
+import { Search } from "./components/Search";
 
 function App() {
-  let [studentList, setStudentList] = useState([]);
+  const [studentList, setStudentList] = useState([]);
+  const [query, setQuery] = useState("");
 
   const fetchData = useCallback(() => {
     fetch("https://api.hatchways.io/assessment/students")
@@ -15,17 +17,27 @@ function App() {
     fetchData();
   }, [fetchData]);
 
+  const filteredStudentList = studentList.map((students) =>
+    students.filter((item) => {
+      return (
+        item.firstName.toLowerCase().includes(query.toLowerCase()) ||
+        item.lastName.toLowerCase().includes(query.toLowerCase())
+      );
+    })
+  );
+
   return (
     <section>
       <div className="center">
+        <Search query={query} onQueryChange={(myQuery) => setQuery(myQuery)} />
         {
           <ul>
-            {studentList.map((students) =>
-              students.map((element) => (
+            {filteredStudentList.map((students) =>
+              students.map((student) => (
                 <StudentInfo
-                  student={element}
-                  key={element.id}
-                  grades={element.grades}
+                  student={student}
+                  key={student.id}
+                  grades={student.grades}
                 />
               ))
             )}
