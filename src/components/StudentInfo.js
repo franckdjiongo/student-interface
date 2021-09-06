@@ -1,8 +1,12 @@
-import { useReducer } from "react";
+import { useMemo, useReducer } from "react";
 import "./studentInfo.css";
 
 export function StudentInfo({ student, grades }) {
-  let gradesToNumbers = grades.map((i) => Number(i));
+  const gradesToNumbers = useMemo(() => grades.map((i) => Number(i)), [grades]);
+  const average = useMemo(
+    () => gradesToNumbers.reduce((a, b) => a + b, 0) / grades.length,
+    [gradesToNumbers, grades.length]
+  );
   const [toggleScores, setToggleScores] = useReducer(
     (toggleScores) => !toggleScores,
     true
@@ -23,14 +27,17 @@ export function StudentInfo({ student, grades }) {
           <span className="padding-left">Company : {student.company} </span>
           <span className="padding-left">Skill : {student.skill} </span>
           <span className="padding-left">
-            Average :{" "}
-            {gradesToNumbers.reduce((a, b) => a + b, 0) / grades.length}
+            Average : {average}
             {"%"}
           </span>
 
           {gradesToNumbers.map((grade, id) => (
-            <span style={{ display: `${toggleScores ? "none" : "block"}` }}>
-              Test {id++ + 1} : {grade}%
+            <span
+              className="padding-left"
+              style={{ display: `${toggleScores ? "none" : "block"}` }}
+            >
+              {" "}
+              Test {id++ + 1} : &nbsp; &nbsp; &nbsp; {grade}%
             </span>
           ))}
         </div>
