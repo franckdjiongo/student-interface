@@ -20,6 +20,7 @@ body {
 
 section {
   padding-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .center {
@@ -32,9 +33,9 @@ section {
   width: 90%;
   margin: 0 auto;
   padding: 10 0 0 0;
-  background-color: white;
+
   scroll-behavior: smooth;
-  height: 39em;
+  height: 45em;
 }
 
 /* Hide scrollbar Chrome, Opera */
@@ -42,9 +43,17 @@ section {
   display: none;
 }
 
-ul {
+.app-ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
   height: 39em;
+}
+
+.app-search-div {
+  position: relative;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

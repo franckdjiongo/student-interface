@@ -1,9 +1,10 @@
 import "./search.css";
 
-export function Search({ query, onQueryChange }) {
+export function Search({ query, onQueryChange, placeholder }) {
   return (
     <input
-      placeholder="Search by name"
+      className="input-search"
+      placeholder={placeholder}
       type="text"
       name="query"
       id="query"

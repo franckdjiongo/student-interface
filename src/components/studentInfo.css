@@ -5,13 +5,14 @@
   padding-left: 1rem;
 }
 
-div {
+.div-intro {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-img {
+
+.img-info {
   border-color: hsl(0, 12%, 92%);
   border-style: solid;
   border-width: 1px;
@@ -22,7 +23,7 @@ img {
 }
 
 div > span:first-of-type {
-  padding-top: 1rem;
+  padding-top: 2rem;
   font-size: xx-large;
   padding-bottom: 0.5rem;
   display: flex;
@@ -47,26 +48,42 @@ li {
 }
 
 .line {
-  width: auto;
-  height: 20px;
+  /* width: auto; */
+  padding: 0;
+  /* height: 20px; */
   border-bottom: 1px solid hsl(0, 12%, 92%);
-  margin-bottom: 0;
+  margin: 0;
 }
 
-button {
-  border-radius: 50px;
-  background-color: white;
+.btn-test {
   margin-right: 2rem;
-  color: rgb(110, 108, 108);
-  border-style: none;
-  font-size: xx-large;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 15px;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  color: cadetblue;
+  background: whitesmoke;
+  font: 500 24px sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-button:hover {
+.btn-test:hover {
   color: black;
 }
 
-button:active {
+.btn-test:active {
   color: black;
   background-color: whitesmoke;
+}
+
+.btn-tag {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.input-tag {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-style: none;
+  background-color: transparent;
+  border-bottom: 1px solid hsl(0, 5%, 74%);
 }

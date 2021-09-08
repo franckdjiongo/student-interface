@@ -1,12 +1,15 @@
-input {
+.input-search {
+  width: fit-content;
   box-sizing: border-box;
   place-content: center;
   padding: 0.5rem;
   border-style: none;
-  border-bottom: 1px solid hsl(0, 12%, 92%);
-  margin: 5rem 0.5rem 0.5rem 0.5rem;
+  background-color: transparent;
+  border-bottom: 1px solid hsl(0, 5%, 74%);
+  margin: 0.5rem;
 }
 ::placeholder {
+  font-weight: bold;
   color: #474141;
   font-family: "Raleway", sans-serif;
 }
